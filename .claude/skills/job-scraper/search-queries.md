@@ -4,66 +4,64 @@
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY])
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+**Priority: scaffold dedicated portal skills for StepStone, Xing, and Indeed.de via `/add-portal` before relying on Google site-search below.** These are German market job boards and are the primary target for direct scraping, not just query-string fallbacks.
 
-Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+- **StepStone.de** - to be scaffolded via `/add-portal` (high priority)
+- **Xing.com** - to be scaffolded via `/add-portal` (high priority)
+- **Indeed.de** - to be scaffolded via `/add-portal` (high priority)
+- **linkedin.com/jobs** - LinkedIn job listings (filter: Germany / München)
+- **Google site-search** - fallback general web search across job boards and company career pages until dedicated portal skills exist
 
 ## Query Categories
 
-Queries are grouped by priority. Each query should be combined with your location terms (e.g. your city, region, or metro area) where the site supports it.
+Queries are grouped by priority. Each query should be combined with your location terms (München, Bavaria, Germany) where the site supports it.
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
+### Priority 1: Software Engineer / C++
 
 These match your strongest and most desired career direction.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_COUNTRY]
+site:linkedin.com/jobs "Software Engineer" C++ München
+site:linkedin.com/jobs "C++ Developer" München
+site:stepstone.de "C++ Entwickler" München
+site:indeed.de "Software Engineer" C++ München
 ```
 
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
+### Priority 2: Computer Vision / Robotics
 
-These match your domain expertise.
-
-```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
-```
-
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
-
-Adjacent roles you could pivot into.
+These match your domain expertise and target career direction.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:linkedin.com/jobs "Computer Vision Engineer" München
+site:linkedin.com/jobs "Robotics Engineer" München
+site:stepstone.de "Bildverarbeitung" OR "Computer Vision" München
+site:indeed.de "Robotics" C++ München
 ```
 
-### Priority 4: Broader Technical / Consulting
+### Priority 3: Embedded Systems (adjacent)
 
-Wider net for general technical roles.
+Adjacent roles that build on your embedded/hardware background.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:linkedin.com/jobs "Embedded Software Engineer" München
+site:stepstone.de "Embedded Systems" C++ München
+```
+
+### Priority 4: Broader Technical
+
+Wider net for general C++/software roles in München.
+
+```
+site:linkedin.com/jobs "C++" developer München
+site:indeed.de "C++" München
 ```
 
 ## Location Filter
 
 When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+- München and surrounding areas
+- Direct S-Bahn/transit-connected suburbs of München
+- Anywhere requiring relocation outside the München area (too far - deal-breaker)
 
 ## Date Filter
 
