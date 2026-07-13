@@ -4,10 +4,10 @@
 
 ## Search Sites
 
-**Priority: scaffold dedicated portal skills for StepStone, Xing, and Indeed.de via `/add-portal` before relying on Google site-search below.** These are German market job boards and are the primary target for direct scraping, not just query-string fallbacks.
+**Priority: scaffold a dedicated portal skill for Indeed.de via `/add-portal` before relying on Google site-search below.** These are German market job boards and are the primary target for direct scraping, not just query-string fallbacks.
 
-- **StepStone.de** - to be scaffolded via `/add-portal` (high priority)
-- **Xing.com** - to be scaffolded via `/add-portal` (high priority)
+- **StepStone.de** - Akamai bot-protected (403 on robots.txt, search, and detail pages); no public search API exists (only an employer-side JobFeed API for posting jobs, and a preview-only recruiter Candidate Search API). Staying on Google site-search fallback permanently - do not re-attempt `/add-portal` for this one.
+- **Xing.com** - scaffolded and verified via `/add-portal` (2026-07-12). Scrapes the server-rendered `/jobs/search/ki?keywords=&location=&radius=&page=` results page, no auth needed. Detail lookups require the exact slug from a search result (`/jobs/<slug>-<id>`) - a guessed slug returns `410 Gone`. Skill at `.agents/skills/xing-search/`.
 - **Indeed.de** - to be scaffolded via `/add-portal` (high priority)
 - **linkedin.com/jobs** - LinkedIn job listings (filter: Germany / München)
 - **Google site-search** - fallback general web search across job boards and company career pages until dedicated portal skills exist
