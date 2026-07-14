@@ -6,7 +6,6 @@
 
 - **StepStone.de** - Akamai bot-protected (403 on robots.txt, search, and detail pages); no public search API exists (only an employer-side JobFeed API for posting jobs, and a preview-only recruiter Candidate Search API). Staying on Google site-search fallback permanently - do not re-attempt `/add-portal` for this one.
 - **Xing.com** - scaffolded and verified via `/add-portal` (2026-07-12). Scrapes the server-rendered `/jobs/search/ki?keywords=&location=&radius=&page=` results page, no auth needed. Detail lookups require the exact slug from a search result (`/jobs/<slug>-<id>`) - a guessed slug returns `410 Gone`. Skill at `.agents/skills/xing-search/`.
-- **GermanTechJobs.de** - scaffolded via `/add-portal`. Search page is a client-rendered SPA with no public search API; scrapes the sitewide RSS feed (`/rss`, all of Germany, no query params) instead and filters client-side by keyword/location/posting age. No structured location field - always combine `--query`/`--location` to narrow from sitewide noise. Skill at `.agents/skills/germantechjobs-search/`.
 - **Indeed.de** - blocked. robots.txt disallows `/jobs`, `/viewjob`, and search paths, and explicitly names ClaudeBot as disallowed. Staying on Google site-search fallback permanently - do not re-attempt `/add-portal` for this one.
 - **linkedin.com/jobs** - LinkedIn job listings (filter: Germany / [YOUR_CITY])
 - **Google site-search** - fallback general web search across job boards and company career pages until dedicated portal skills exist
